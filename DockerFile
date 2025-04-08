@@ -1,0 +1,14 @@
+# Use the official Python 3.10-slim image as the base image
+FROM python:3.10-slim
+
+# Set the working directory in the container
+WORKDIR /
+
+# Install the runpod package without caching
+RUN pip install --no-cache-dir runpod
+
+# Copy the rp_handler.py file from your local directory to the container
+COPY rp_handler.py /
+
+# Define the command to run when the container starts
+CMD ["python3", "-u", "rp_handler.py"]
