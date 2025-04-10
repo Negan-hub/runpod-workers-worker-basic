@@ -2,13 +2,17 @@ import runpod
 import time
 
 def handler(event):
+    print(f"Worker Start")
     input = event['input']
-    instruction = input.get('instruction')
+
+    prompt = input.get('prompt')
     seconds = input.get('seconds', 0)
 
-    # Placeholder for a task; replace with image or text generation logic as needed
+    print(f"Received prompt: {prompt}")
+    print(f"Sleeping for {seconds} seconds...")
+
+    # Replace the sleep code with your Python function to generate images, text, or run any 
     time.sleep(seconds)
-    result = instruction.replace(instruction.split()[0], 'created', 1)
 
     return result
 
